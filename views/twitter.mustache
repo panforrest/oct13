@@ -10,7 +10,13 @@
     <h1>{{ title }}</h1>
 
     {{#tweets}}
-      <span>{{ text }}</span><br />
+
+      <div class="tweet-box">
+          <img src={{user.profile_image_url}} />
+          {{ text }} <br /> {{ created_at }} <br />
+          <a target="_blank" href="https:www.twitter.com/{{ user.screen_name }}">@{{ user.screen_name }}</a>
+
+      </div><br />
     {{/tweets}}
 
   </body>
