@@ -4,12 +4,13 @@ var Yelp = require('yelp')
 
 router.get('/:page', function(req, res, next) {
 	var page = req.params.page
-	// if (page == 'venue'){
-	// res.render(page, { title: 'Express' })
-	// 	return
-	// }
+	var id = req.query.id
 
-  res.render(page, { title: 'Express' });
+	var data = {
+		venue: id
+	}
+
+  res.render(page, data);   //res.render(page, { data: data });
 });
 
 router.get('/', function(req, res, next) {
