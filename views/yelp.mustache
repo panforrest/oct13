@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <div>
+
+      <h2 id="title">{{ title }}</h2>
+
+      {{#data.businesses}}
+      <div class="venue-box">
+        <img class="icon" src="{{image_url}}" /> 
+        <h2>{{ name }}, {{ location.address }}</h2>
+        <a target="_blank" href="{{url}}">Yelp</a>
+        <p>{{snippet_text}}</p>
+        {{ location.address }}
+
+        <br />
+
+        <ul>
+        {{#categories}}
+          <li>{{.}}</li>
+        {{/categories}}
+        </ul>
+
+        <form>
+          <h3>Contact Us</h3>
+          <input type="text" placeholder="Message" />
+          <input type="submit" value="Send" />
+
+        </form>
+
+      </div>
+
+      {{/data.businesses}}
+
+
+    </div>
+
+
+  </body>
+
+
+
+</html>

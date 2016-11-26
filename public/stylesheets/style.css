@@ -1,0 +1,32 @@
+.venue-box {
+	background:#f9f9f9;
+	margin-top:16px;
+	padding:16px;
+	color:#333;
+	border:1px solid #ddd;
+}
+
+.venue-box h2 {
+	margin: 0px 0px 0px 0px;
+	font-family: Arial;
+}
+
+.venue-box a {
+	text-decoration:none;
+	color: red;
+}
+
+.venue-box ul {
+	padding-left:16px
+}
+
+.icon {
+	width: 72px;
+	border-radius: 36px;
+	float: left;
+	margin-right: 16px
+}
+
+#title {
+	font-size: 64px
+}
