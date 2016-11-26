@@ -18,7 +18,7 @@ router.get('', function(req, res, next){
 
 	client.get(url, params, function(error, tweets, response) {
         console.log(JSON.stringify(tweets))
-        res.render('tweet', null)
+        res.render('tweet', tweets)
 	})	
 
 	// res.render('tweet', null)
