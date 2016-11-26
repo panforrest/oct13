@@ -3,6 +3,9 @@ var router = express.Router()
 var Twitter = require('twitter')
 
 router.get('', function(req, res, next){
+    var id = req.query.id
+    console.log('ID= '+id)
+
 	res.render('tweet', null)
 })
 
