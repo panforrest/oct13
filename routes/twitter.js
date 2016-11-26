@@ -6,7 +6,22 @@ router.get('', function(req, res, next){
     var id = req.query.id
     console.log('ID= '+id)
 
-	res.render('tweet', null)
+	var client = new Twitter({
+	  consumer_key: '2fyOw1DABfCv9O7rCIXCL0NS9',
+	  consumer_secret: '7rLPuKm0IM8SS8SVUF8SMdkK8BGg1vA2bvc9eaDlHRHBAE0vxQ',
+	  access_token_key: '1118902316-AJXLU9qeaKhskrYCQH7MKGetxM3068mJgtV85IS',
+	  access_token_secret: 'KxgCxyupDTq3RTGksqHGH90Uh3tUDTzCJeaZLpZriOfd1'
+	})
+
+	var url = 'statuses/show/'+id
+    var params = {}
+
+	client.get(url, params, function(error, tweets, response) {
+        console.log(JSON.stringify(tweets))
+        res.render('tweet', null)
+	})	
+
+	// res.render('tweet', null)
 })
 
 
