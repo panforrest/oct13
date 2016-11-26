@@ -6,11 +6,27 @@ router.get('/:page', function(req, res, next) {
 	var page = req.params.page
 	var id = req.query.id
 
-	var data = {
-		venue: id
-	}
+	var yelp = new Yelp({
+	  consumer_key: 'sMjsmliC9gKiXtvCXSQxCA',
+	  consumer_secret: 'teV_SLD48JWA2d2G3UQ7zuL6LdU',
+	  token: 'tFbXLcPFBDyb-Qq_TdQLibMiY0DLsaJl',
+	  token_secret: 'o0CdBGngWRHsGAq0DJ665OVRYvM',
+	})
 
-  res.render(page, data);   //res.render(page, { data: data });
+	yelp.business('yelp-san-francisco')
+    .then(function(data){
+    	console.log(JSON.stringify(data))
+    	res.render(page, data)
+    })
+    .catch(function(error){
+    	res.render('error', error)
+    });
+
+	// var data = {
+	// 	venue: id
+	// }
+
+ //  res.render(page, data);   //res.render(page, { data: data });
 });
 
 router.get('/', function(req, res, next) {
