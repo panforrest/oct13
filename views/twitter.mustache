@@ -14,15 +14,34 @@
 
     <h1>{{ title }}</h1>
 
-    {{#tweets}}
+    <div class="col-md-4">
+      <form class="search-form">
+         <input type="text" placeholder="search" class="form-control" />
 
-      <div class="tweet-box">
-          <img src={{user.profile_image_url}} />
-          {{ text }} <br /> {{ created_at }} <br />
-          <a target="_blank" href="https:www.twitter.com/{{ user.screen_name }}">@{{ user.screen_name }}</a>
+         <select  class="form-control">
+             <option value="search">Search</option>
+             <option value="timeline">Timeline</option>
+         </select>
 
-      </div><br />
-    {{/tweets}}
+         <input type="submit" value="submit" class="btn-success" />
+      </form>
+    </div>
+
+    <div class="col-md-8">
+
+      {{#tweets}}
+
+        <div class="tweet-box">
+            <img src={{user.profile_image_url}} />
+            {{ text }} <br /> {{ created_at }} <br />
+            <a target="_blank" href="https:www.twitter.com/{{ user.screen_name }}">@{{ user.screen_name }}</a>
+
+        </div><br />
+      {{/tweets}}
+
+    </div>
+
+
 
     </div>
 
