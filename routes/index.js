@@ -12,7 +12,7 @@ router.post('/:page', function(req, res, next){
 	var query= req.body.query
 	var type = req.body.type
 
-    var url = '/twitter/search?term=mlb'
+    var url = '/twitter/search?term='+query
 	res.redirect(url)
 
 	res.json(req.body)
