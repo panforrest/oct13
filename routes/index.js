@@ -10,9 +10,17 @@ router.post('/:page', function(req, res, next){
 	console.log(JSON.stringify(req.body))
 
 	var query= req.body.query
-	var type = req.body.type
+	var type = req.body.type // search or timeline
 
-    var url = '/twitter/search?term='+query
+    // var url = '/twitter/search?term='+query
+    var url = null
+    if (type == 'search'){
+    	url = '/twitter/search?term='+query
+    }
+    else if (type == 'timeline'){
+    	url = '/twitter/timeline?username='+query
+    }
+
 	res.redirect(url)
 
 	res.json(req.body)
