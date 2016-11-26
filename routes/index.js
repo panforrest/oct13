@@ -9,6 +9,12 @@ router.get('/', function(req, res, next) {
 router.post('/:page', function(req, res, next){
 	console.log(JSON.stringify(req.body))
 
+	var query= req.body.query
+	var type = req.body.type
+
+    var url = '/twitter/search?term=mlb'
+	res.redirect(url)
+
 	res.json(req.body)
 })
 
