@@ -2,6 +2,15 @@ var express = require('express')
 var router = express.Router()
 var Yelp = require('yelp')
 
+router.get('/:page', function(req, res, next) {
+	var page = req.params.page
+	// if (page == 'venue'){
+	// res.render(page, { title: 'Express' })
+	// 	return
+	// }
+
+  res.render(page, { title: 'Express' });
+});
 
 router.get('/', function(req, res, next) {
 	var term = req.query.term
