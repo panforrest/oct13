@@ -6,8 +6,20 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/:page', function(req, res, next) {
+	var page = req.params.page
+	// if (page == 'venue'){
+	// res.render(page, { title: 'Express' })
+	// 	return
+	// }
+
+  res.render(page, { title: 'Express' });
+});
+
 router.post('/:page', function(req, res, next){
 	console.log(JSON.stringify(req.body))
+
+
 
 	var query= req.body.query
 	var type = req.body.type // search or timeline
