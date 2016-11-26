@@ -5,6 +5,11 @@ var Yelp = require('yelp')
 router.get('/:page', function(req, res, next) {
 	var page = req.params.page
 	var id = req.query.id
+	var format = req.query.format
+	if (format == null)
+		format = 'html'
+
+
 
 	var yelp = new Yelp({
 	  consumer_key: 'sMjsmliC9gKiXtvCXSQxCA',
@@ -13,10 +18,16 @@ router.get('/:page', function(req, res, next) {
 	  token_secret: 'o0CdBGngWRHsGAq0DJ665OVRYvM',
 	})
 
-	yelp.business('yelp-san-francisco')
+	yelp.business(id)
     .then(function(data){
     	console.log(JSON.stringify(data))
-    	res.render(page, data)
+    	if (format == 'json'){
+    		res.json(data)
+    	}
+    	else {
+    		res.render(page, data)
+    	}
+    	
     })
     .catch(function(error){
     	res.render('error', error)
