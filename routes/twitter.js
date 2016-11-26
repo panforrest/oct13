@@ -4,6 +4,10 @@ var Twitter = require('twitter')
 
 router.get('', function(req, res, next){
     var id = req.query.id
+    var format = req.query.format
+    if (format == null)
+    	format = 'html'
+
     console.log('ID= '+id)
 
 	var client = new Twitter({
@@ -18,7 +22,14 @@ router.get('', function(req, res, next){
 
 	client.get(url, params, function(error, tweets, response) {
         console.log(JSON.stringify(tweets))
-        res.render('tweet', tweets)
+        if (format == 'json'){
+        	res.json(tweets)
+        }
+        else {
+        	res.render('tweet', tweets)
+        }
+
+        // res.render('tweet', tweets)
 	})	
 
 	// res.render('tweet', null)
